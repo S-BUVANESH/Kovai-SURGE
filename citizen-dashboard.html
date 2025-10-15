@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Citizen Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: { extend: { colors: { "primary": "#6B8E23", "background-dark": "#2F4F4F", "charcoal": "#2F4F4F", "light-gray": "#DCDCDC" }, fontFamily: { "display": ["Space Grotesk", "sans-serif"] } } }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="citizen-dashboard.css">
+</head>
+<body class="bg-gray-100 dark:bg-background-dark font-display">
+<div class="flex min-h-screen">
+    <aside class="flex w-64 flex-col bg-white dark:bg-charcoal p-4 border-r border-light-gray dark:border-gray-700">
+        <div class="flex flex-col gap-4">
+            <div class="flex gap-3 items-center">
+                <div class="bg-center bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfx-0ML25UQ5QotnVAlC4ussqBhAZpqwUJ5pPEWW96TQE5yGIUKsIPL_RxAOEwHQUA8FYUmg88-1lfC0dUju1OJZmZF4et53KskA8hVH4dUGTaINrYD77Nw7Z5jELftBVAfdWiRD2zkTLvu9zdGVsqfL_XUwlm7R1XXQsJuIsYmHyqcSAxmMpoyZc9u05Hde0UJTuACpCuw9bRW6sWZ8uzLU0Fb5zdb0P0DISHg4ZltI4z8g483EpTPRlOd2CxQEkWyKFtN9lM81Er");'></div>
+                <div class="flex flex-col overflow-hidden">
+                    <h1 id="user-display-name" class="text-charcoal dark:text-white font-medium truncate">Loading...</h1>
+                    <p class="text-gray-500 dark:text-light-gray text-sm">Citizen Profile</p>
+                </div>
+            </div>
+            <nav id="sidebar-nav" class="flex flex-col gap-2 mt-4">
+            <a class="nav-link active" href="#" data-page="my-impact-page">
+                <span class="material-symbols-outlined">military_tech</span><p>My Impact</p>
+            </a>
+            
+            <a class="nav-link" href="report-issue.html">
+                <span class="material-symbols-outlined">report</span><p>Report an Issue</p>
+            </a>
+
+            <a class="nav-link" href="#" data-page="redeem-page">
+                <span class="material-symbols-outlined">store</span><p>Redeem Points</p>
+            </a>
+            
+            <a class="nav-link" href="segregation-guide.html">
+                <span class="material-symbols-outlined">recycling</span><p>Segregation Guide</p>
+            </a>
+</nav>
+        </div>
+        <div class="mt-auto flex flex-col gap-4">
+            <label for="theme-toggle" class="theme-switcher">
+                <span class="material-symbols-outlined text-yellow-500">light_mode</span>
+                <div class="toggle-wrap"><input type="checkbox" id="theme-toggle"/><div class="toggle-slider"></div></div>
+                <span class="material-symbols-outlined text-blue-300">dark_mode</span>
+            </label>
+            <button id="logout-button" class="action-btn bg-primary text-white w-full h-10">Logout</button>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-6 lg:p-8">
+        <div id="my-impact-page" class="page active">
+            <header class="animate-on-load">
+                <p class="text-charcoal dark:text-white text-4xl font-black">My Impact</p>
+                <p id="welcome-message" class="text-gray-500 dark:text-light-gray text-base">Welcome back!</p>
+            </header>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-6">
+                <div class="lg:col-span-2 flex flex-col gap-8">
+                    <div class="p-4 bg-white dark:bg-charcoal rounded-lg shadow-md animate-on-load" style="animation-delay: 100ms;">
+                        <div class="flex flex-col lg:flex-row items-start">
+                            <div class="w-full bg-cover bg-center aspect-video rounded-lg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB12d6J2BvfsoExqL4ngjqJQLvE6xQ636GBWBZgx8e5o8qHO9CSDVJBsw1guW8tr3jXZla4E0ezvD5CCZGXCgHDat5aZ_Dg8T4ROqD1Uo-Xcz8E3iqb3yNBXi7x2b3o5pInoiE9T6hZ5i0IPMvz78PyXbXsn3yUBzVSP1_AYdDN74fi4I_nbzQu9IMzjx68hCBq1J6rZwVcc48lcQ0hQicfLsMprhZqAMzTW4ALT7nrQVyapKwMm_308Fn0ReeZiCcpLPluwE556wjH");'></div>
+                            <div class="flex w-full flex-col gap-1 p-4">
+                                <p class="text-gray-500 dark:text-light-gray text-sm">Upcoming</p>
+                                <p class="text-charcoal dark:text-white text-lg font-bold">Next Collection</p>
+                                <p class="text-charcoal dark:text-light-gray">Thursday, 16 Oct, 8:00 AM</p>
+                                <p class="text-charcoal dark:text-light-gray font-semibold">Recyclable Waste</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animate-on-load" style="animation-delay: 300ms;">
+                        <h2 class="text-2xl font-bold mb-4 text-charcoal dark:text-white">Recent Activity</h2>
+                        <div id="notifications-container" class="space-y-3"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4 animate-on-load" style="animation-delay: 200ms;">
+                    <h2 class="text-charcoal dark:text-white text-2xl font-bold">My Contribution</h2>
+                    <div class="stat-card"><p>Recycled Items</p><span id="stat-recycled">0</span><p id="stat-recycled-change" class="stat-change"></p></div>
+                    <div class="stat-card"><p>Waste Reduced</p><span id="stat-reduced">0 kg</span><p id="stat-reduced-change" class="stat-change"></p></div>
+                    <div class="stat-card"><p>Green Points</p><span id="stat-points" class="text-yellow-500">0</span><p id="stat-points-change" class="stat-change"></p></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="report-issue-page" class="page hidden"><h2 class="text-2xl font-bold text-charcoal dark:text-white">Report an Issue Coming Soon</h2></div>
+        
+        <div id="redeem-page" class="page hidden">
+            <h2 class="text-2xl font-bold text-charcoal dark:text-white">Redeem Green Points</h2>
+            <div id="points-balance-card" class="mt-6 p-6 bg-primary/20 rounded-lg flex items-center justify-between">
+                <div>
+                    <p class="text-primary font-medium">Your Balance</p>
+                    <p class="text-3xl font-bold text-charcoal dark:text-white"><span id="points-balance">0</span> GP</p>
+                </div>
+                <span class="material-symbols-outlined text-primary text-5xl">savings</span>
+            </div>
+            <div id="rewards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"></div>
+        </div>
+
+        <div id="guide-page" class="page hidden"><h2 class="text-2xl font-bold text-charcoal dark:text-white">Segregation Guide Coming Soon</h2></div>
+    </main>
+</div>
+<script src="citizen-dashboard.js"></script>
+</body>
+</html>

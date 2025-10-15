@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SURGE Command Center</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#53d22d", "background-dark": "#152012" }, fontFamily: { "display": ["Space Grotesk", "sans-serif"] } } } }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body class="bg-background-dark font-display text-white">
+
+<div id="logout-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-[#fa9d38] text-4xl">warning</span>
+                <h2 class="text-2xl font-bold">Confirm Logout</h2>
+            </div>
+            <p class="text-[#a5b6a0]">Are you sure you want to logout from the SURGE Command Center?</p>
+            <div class="flex gap-3 mt-4">
+                <button id="confirm-logout" class="flex-1 bg-[#fa4b38] hover:bg-[#d93d2a] text-white font-medium py-2 px-4 rounded-lg hover-scale">Logout</button>
+                <button id="cancel-logout" class="flex-1 bg-[#42513e] hover:bg-[#556852] text-white font-medium py-2 px-4 rounded-lg hover-scale">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flex min-h-screen">
+    <aside class="w-64 bg-[#131712] flex-shrink-0">
+        <div class="flex h-full flex-col justify-between p-4">
+            <div>
+                <div class="flex items-center gap-3">
+                    <div class="bg-center bg-cover rounded-full size-10 hover-scale" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDamYdFYZbJcaHoHMd9x1yv_s2YBOVOQUgE9NsbDNaY_z5ggZNuKMN_25xbTHpsS2s3GskWyA-TJNGdBhRak1j8UHbAkmrnX-1nohWiKSdECG1DGg2-yBoQWMKiaxYUikM0jvjtzbu0nvyZCUlTsBLFi9EjVhJLJ58MF0HL-V8QVkuuYOUfb0ZqwPtK-Gh-7VMsSmvKU1gIw3KIrpEwIW8hDTfSN6VA6LcqvJLHt8FJrdWhrZa-PzGAE5YOc9GvhSr1d14V0cJGjxaz");'></div>
+                    <div class="flex flex-col">
+                        <h1 id="user-display-name" class="text-white text-base font-medium truncate">Loading...</h1>
+                        <p class="text-[#a5b6a0] text-sm">Administrator</p>
+                    </div>
+                </div>
+                <nav id="sidebar-nav" class="flex flex-col gap-2 mt-4">
+                    <a class="nav-link active" href="#" data-page="dashboard-page"><span class="material-symbols-outlined">dashboard</span><p>Dashboard</p></a>
+                    <a class="nav-link" href="#" data-page="route-optimization-page"><span class="material-symbols-outlined">route</span><p>Route Optimization</p></a>
+                    <a class="nav-link" href="#" data-page="analytics-page"><span class="material-symbols-outlined">analytics</span><p>Analytics & Reports</p></a>
+                    <a class="nav-link" href="#" data-page="worker-management-page"><span class="material-symbols-outlined">groups</span><p>Worker Management</p></a>
+                    <a class="nav-link" href="#" data-page="citizen-reports-page"><span class="material-symbols-outlined">report</span><p>Citizen Reports</p></a>
+                </nav>
+            </div>
+            <div class="flex flex-col gap-1">
+                <a class="nav-link" href="#"><span class="material-symbols-outlined">settings</span><p>Settings</p></a>
+                <a id="logout-button" class="nav-link cursor-pointer" href="#"><span class="material-symbols-outlined">logout</span><p>Logout</p></a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-6 lg:p-8">
+        <div id="dashboard-page" class="page active">
+            <header>
+                <div class="flex items-center gap-3">
+                    <p class="text-white text-4xl font-black">SURGE Command Center - Coimbatore</p>
+                    <span class="live-indicator flex items-center gap-1 bg-[#fa4b38] text-white text-xs font-bold px-2 py-1 rounded-full"><span class="w-2 h-2 bg-white rounded-full"></span>LIVE</span>
+                </div>
+                <p class="text-[#a5b6a0]">Real-time overview of waste management operations.</p>
+            </header>
+            <section id="kpi-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mt-6">
+                <div class="stat-card-v2 p-4"><p>Total Waste Collected</p><span class="text-3xl">120 tons</span><p class="font-medium text-[#0bda35] mt-auto">+5%</p></div>
+                <div class="stat-card-v2 p-4"><p>City Recycling Rate</p><span class="text-3xl">65%</span><p class="font-medium text-[#0bda35] mt-auto">+2%</p></div>
+                <div class="stat-card-v2 p-4 bg-[#2b2111] border-[#fa9d38]/50"><p>Bins Requiring Attention</p><span class="text-3xl">15</span><p class="font-medium text-[#fa9d38] mt-auto">+3</p></div>
+                <div class="stat-card-v2 p-4"><p>Active Collection Trucks</p><span class="text-3xl">8</span><p class="font-medium text-[#fa4b38] mt-auto">-1</p></div>
+                <div class="stat-card-v2 p-4 bg-[#2a1714] border-[#fa4b38]/50"><p>Open Citizen Reports</p><span class="text-3xl">25</span><p class="font-medium text-[#fa4b38] mt-auto">+5</p></div>
+            </section>
+            <section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                <div class="lg:col-span-2 w-full aspect-[16/9] rounded-lg border border-[#42513e] bg-cover bg-center hover-scale" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAiXBR6ZBQtMUaPpm7wJFkgiWiHJR4prrp9jg6kCPukJgl7EiczvBkpwcar7InkYHNj_dvaYX3wh86OLMT3DdY6c5jaxayL7A0sOyMdAMbK4Qq8M61eE2qLp1E2zw85McdZM8gNhir8Y0SkAiNDrEP43AMT4nQ3vElqAoKDihAJ_RQ7mj5GSu4tU49G0Mk3zDSzWWLfYBtOfzVqOuKL3orrS8uUtx9Lxw5K-78q0-UOCHHPSDMNjvfJS7bK4-2-3chJctOBGZw0GEBw");'></div>
+                <div class="flex flex-col gap-4">
+                    <div class="stat-card-v2 p-6 h-full"><p class="text-lg font-medium">Waste Generation by Zone</p><div id="bar-chart-container" class="grid min-h-[180px] grid-flow-col gap-4 grid-rows-[1fr_auto] items-end justify-items-center px-3 mt-4"><div class="chart-bar bg-primary/30 w-full rounded-t-sm" style="height: 40%;"></div><p class="text-sm font-bold text-[#a5b6a0]">A</p><div class="chart-bar bg-primary/30 w-full rounded-t-sm" style="height: 70%;"></div><p class="text-sm font-bold text-[#a5b6a0]">B</p><div class="chart-bar bg-primary/30 w-full rounded-t-sm" style="height: 80%;"></div><p class="text-sm font-bold text-[#a5b6a0]">C</p><div class="chart-bar bg-primary w-full rounded-t-sm" style="height: 90%;"></div><p class="text-sm font-bold text-primary">D</p><div class="chart-bar bg-primary/30 w-full rounded-t-sm" style="height: 60%;"></div><p class="text-sm font-bold text-[#a5b6a0]">E</p></div></div>
+                </div>
+            </section>
+        </div>
+
+        <div id="route-optimization-page" class="page hidden">
+            <header><p class="page-title">Route Optimization</p><p class="page-subtitle">Analyze and deploy optimized collection routes.</p></header>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                <div class="lg:col-span-2 w-full aspect-[16/9] rounded-lg border border-[#42513e] bg-cover bg-center" style='background-image: url("https://i.imgur.com/example-map.png");'></div>
+                <div class="flex flex-col gap-4"><div class="stat-card-v2"><p>Efficiency Gain</p><span class="text-primary">+18%</span></div><div class="stat-card-v2"><p>Fuel Saved (Est.)</p><span>25 Liters/day</span></div><div class="stat-card-v2"><p>Time Saved (Est.)</p><span>3 Hours/day</span></div><button class="action-button mt-auto"><span class="material-symbols-outlined">play_arrow</span>Deploy Optimized Routes</button></div>
+            </div>
+        </div>
+
+        <div id="analytics-page" class="page hidden">
+            <header><p class="page-title">Analytics & Reports</p><p class="page-subtitle">Deep dive into operational data and generate reports.</p></header>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6"><div class="stat-card-v2 p-6 h-96"><p class="text-lg font-medium">Waste Collected Over Time</p><div id="line-chart-placeholder" class="h-full w-full text-center text-[#a5b6a0] flex items-center justify-center">Line Chart Placeholder</div></div><div class="stat-card-v2 p-6 h-96"><p class="text-lg font-medium">Collection Efficiency by Vehicle</p><div id="efficiency-chart-placeholder" class="h-full w-full text-center text-[#a5b6a0] flex items-center justify-center">Bar Chart Placeholder</div></div></div>
+        </div>
+
+        <div id="worker-management-page" class="page hidden">
+            <header class="flex justify-between items-center"><div><p class="page-title">Worker Management</p><p class="page-subtitle">Oversee and manage all field operators.</p></div><button class="action-button"><span class="material-symbols-outlined">add</span>Add Worker</button></header>
+            <div class="table-container mt-6"><table class="w-full"><thead><tr><th>Operator</th><th>Status</th><th>Vehicle ID</th><th>Route</th><th>Efficiency</th></tr></thead><tbody id="worker-table-body"></tbody></table></div>
+        </div>
+
+        <div id="citizen-reports-page" class="page hidden">
+            <header><p class="page-title">Citizen Reports</p><p class="page-subtitle">Address and manage issues reported by citizens.</p></header>
+            <div id="citizen-reports-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"></div>
+        </div>
+    </main>
+</div>
+
+<script src="admin-dashboard.js"></script>
+</body>
+</html>

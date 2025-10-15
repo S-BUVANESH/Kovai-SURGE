@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Citizen Registration</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: { "primary": "#4CAF50", "background-dark": "#212121" },
+                    fontFamily: { "display": ["Space Grotesk", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="login.css"> </head>
+<body class="font-display">
+    <div class="relative flex h-screen w-full flex-col bg-background-dark overflow-hidden">
+        <div class="w-full h-full bg-center bg-no-repeat bg-cover absolute" style='background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/316/188/small_2x/abstract-shiny-dark-green-shape-overlap-background-technology-free-vector.jpg"); background-color: rgba(15, 15, 15, 0.352); background-blend-mode: overlay;'></div>
+        <div class="layout-container flex h-full grow flex-col justify-center items-center p-4">
+            <div class="relative flex flex-col max-w-md w-full p-8 bg-background-dark/80 backdrop-blur-sm rounded-xl">
+                <div class="flex flex-col items-center mb-8">
+                    <img alt="KOVAI~SURGE Logo" class="h-20 mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTzDs8VF7r5df6jIFniRH94A1V7nHnVgarMh56ifCxYxg63MkLRUvef2NojMPLOCOOKoHHov2aATPhPnQOEaGGGKCDaJubFmHZP1yIMGgPAQV4ydRzmToIVgwm_Kp8MI-yux85fCuydXb1mIN59UpuTJ2NNZ5OJKppn0skPZ_EVs__EsbhznWtsp_L_7PDNuZ0kuGlbHC0fFV6fKR4dQRu_UreQjBjCBuHLNPjglxmNKu7uAvmNpIgMCU198fVgCPFbg2OUv0-YULA"/>
+                    <h1 class="text-white text-3xl font-bold tracking-wider">Citizen Registration</h1>
+                    <p class="text-primary text-lg">Join the Movement</p>
+                </div>
+                
+                <form id="registerForm" class="flex flex-col gap-4">
+                    <label class="flex flex-col"><p class="form-label">Full Name</p><input id="fullName" class="form-input" placeholder="Enter your full name" type="text" required/></label>
+                    <label class="flex flex-col"><p class="form-label">Email Address</p><input id="emailInput" class="form-input" placeholder="Enter your @gmail.com address" type="email" required/></label>
+                    <label class="flex flex-col"><p class="form-label">Password</p><input id="passwordInput" class="form-input" placeholder="Create a password" type="password" required/></label>
+                    <label class="flex flex-col"><p class="form-label">Confirm Password</p><input id="confirmPasswordInput" class="form-input" placeholder="Confirm your password" type="password" required/></label>
+                    
+                    <button type="submit" class="form-button">Register</button>
+                </form>
+
+                <div class="mt-8 text-center">
+                    <p class="text-[#E0E0E0] text-sm">Already have an account? <a class="text-primary hover:underline font-semibold" href="index.html">Login Here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="citizen-register.js"></script>
+</body>
+</html>

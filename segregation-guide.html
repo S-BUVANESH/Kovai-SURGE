@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Segregation Guide</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = { darkMode: "class", theme: { extend: { colors: { "primary": "#6B8E23", "background-dark": "#2F4F4F", "charcoal": "#2F4F4F", "light-gray": "#DCDCDC" }, fontFamily: { "display": ["Space Grotesk", "sans-serif"] } } } }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="citizen-dashboard.css">
+</head>
+<body class="bg-gray-100 dark:bg-background-dark font-display">
+<main class="p-6 lg:p-8 max-w-7xl mx-auto">
+    <a href="citizen-dashboard.html" class="back-link">
+        <span class="material-symbols-outlined">arrow_back</span>
+        <span>Back to Dashboard</span>
+    </a>
+    <header class="mt-4 text-center">
+        <p class="text-charcoal dark:text-white text-4xl font-black">Waste Segregation Guide</p>
+        <p class="text-gray-500 dark:text-light-gray text-base max-w-2xl mx-auto mt-2">Proper segregation is the first step towards a cleaner city. Here's a guide to help you sort your waste correctly.</p>
+    </header>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+        <div class="guide-card">
+            <div class="guide-header bg-green-600">
+                <span class="material-symbols-outlined">compost</span><h3>Organic (Wet Waste)</h3>
+            </div>
+            <div class="p-6">
+                <p class="guide-description">Any waste that comes from a plant or animal and is biodegradable.</p>
+                <h4 class="guide-list-title">What goes in:</h4>
+                <ul class="guide-list"><li>Fruit & Vegetable Peels</li><li>Leftover Food</li><li>Egg Shells & Tea Bags</li><li>Garden Waste (leaves, twigs)</li></ul>
+                <h4 class="guide-list-title mt-4 text-red-500">What STAYS OUT:</h4>
+                <ul class="guide-list"><li>Plastics</li><li>Packaging</li><li>Batteries</li></ul>
+            </div>
+        </div>
+        <div class="guide-card">
+            <div class="guide-header bg-blue-600">
+                <span class="material-symbols-outlined">recycling</span><h3>Recyclable (Dry Waste)</h3>
+            </div>
+            <div class="p-6">
+                <p class="guide-description">Items that can be reprocessed into new products. Should be clean and dry.</p>
+                <h4 class="guide-list-title">What goes in:</h4>
+                <ul class="guide-list"><li>Plastic Bottles & Containers</li><li>Paper & Cardboard</li><li>Glass Bottles & Jars</li><li>Metal Cans (tin, aluminum)</li></ul>
+                <h4 class="guide-list-title mt-4 text-red-500">What STAYS OUT:</h4>
+                <ul class="guide-list"><li>Food Waste</li><li>Styrofoam</li><li>Medical Waste</li></ul>
+            </div>
+        </div>
+        <div class="guide-card">
+            <div class="guide-header bg-red-600">
+                <span class="material-symbols-outlined">dangerous</span><h3>Hazardous Waste</h3>
+            </div>
+            <div class="p-6">
+                <p class="guide-description">Waste that is potentially harmful to people or the environment. NEVER mix with other waste.</p>
+                <h4 class="guide-list-title">What goes in:</h4>
+                <ul class="guide-list"><li>Batteries & Electronics</li><li>Paints & Solvents</li><li>Light Bulbs (CFL, tubes)</li><li>Expired Medicines</li></ul>
+                <h4 class="guide-list-title mt-4 text-red-500">What STAYS OUT:</h4>
+                <ul class="guide-list"><li>Everything else!</li></ul>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="segregation-guide.js"></script>
+</body>
+</html>
