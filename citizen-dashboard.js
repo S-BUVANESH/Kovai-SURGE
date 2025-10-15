@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { icon: 'volunteer_activism', text: 'You earned the "Eco-Warrior" badge. +50 GP' }
     ];
     const rewards = [
-        { name: 'Eco-Friendly Tote Bag', cost: 500, img: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400/6130a094622557.5e8373506b486.jpg') },
-        { name: '$5 Cafe Voucher', cost: 1000, img: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrODvuNsmyDpR2EzSZWp0MBelFd4gK6eNdug&s') },
-        { name: 'Plant a Tree Donation', cost: 1500, img: url('https://heartfulness.org/forests/static/gifting-edfd53858cd8be6a08671bdc7e2afb5a.png') },
-        { name: 'Reusable Water Bottle', cost: 2000, img: url('https://img.freepik.com/free-photo/top-view-floating-water_23-2151013921.jpg?semt=ais_hybrid&w=740&q=80') }
+        { name: 'Eco-Friendly Tote Bag', cost: 500, img: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/6130a094622557.5e8373506b486.jpg' },
+        { name: '$5 Cafe Voucher', cost: 1000, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrODvuNsmyDpR2EzSZWp0MBelFd4gK6eNdug&s'},
+        { name: 'Plant a Tree Donation', cost: 1500, img: 'https://heartfulness.org/forests/static/gifting-edfd53858cd8be6a08671bdc7e2afb5a.png' },
+        { name: 'Reusable Water Bottle', cost: 2000, img: 'https://img.freepik.com/free-photo/top-view-floating-water_23-2151013921.jpg?semt=ais_hybrid&w=740&q=80' }
     ];
 
     // --- AUTHENTICATION & PERSONALIZATION ---
@@ -153,3 +153,4 @@ function handleNavClick(e) {
     init(); // Start the application
 
 });
+
