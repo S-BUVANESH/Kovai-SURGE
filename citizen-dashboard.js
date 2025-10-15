@@ -153,3 +153,4 @@ function handleNavClick(e) {
     init(); // Start the application
 });
 
+
